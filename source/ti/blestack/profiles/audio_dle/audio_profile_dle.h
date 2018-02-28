@@ -9,7 +9,7 @@
  Target Device: CC2650, CC2640, CC1350
 
  ******************************************************************************
- 
+
  Copyright (c) 2015-2016, Texas Instruments Incorporated
  All rights reserved.
 
@@ -56,6 +56,8 @@ extern "C"
 /*********************************************************************
  * INCLUDES
  */
+#include "bcomdef.h"
+#include "att.h"
 
 /*********************************************************************
  * CONSTANTS
@@ -89,8 +91,8 @@ extern "C"
  */
 typedef struct audioServiceConfig
 {
-  uint8 mode;
-  uint16 l2capCh;
+  uint8_t mode;
+  uint16_t l2capCh;
 } audioServiceConfig_t;
 
 /*********************************************************************
@@ -98,11 +100,19 @@ typedef struct audioServiceConfig
  */
 
 /*********************************************************************
+ * EXTERNS
+ */
+extern const uint8_t audioProfileServUUID[ATT_UUID_SIZE];
+extern const uint8_t audioProfileStartUUID[ATT_UUID_SIZE];
+extern const uint8_t audioProfileAudioUUID[ATT_UUID_SIZE];
+
+
+/*********************************************************************
  * Profile Callbacks
  */
 
 // Callback when a characteristic value has changed
-typedef void (*audioProfileChange_t)(uint8 paramID);
+typedef void (*audioProfileChange_t)(uint8_t paramID);
 
 typedef struct
 {
@@ -137,12 +147,12 @@ extern bStatus_t Audio_AddService(void);
  * @param       len - length of data to right
  * @param       value - pointer to data to write. This is dependent on
  *                      the parameter ID and WILL be cast to the appropriate
- *                      data type (example: data type of uint16 will be cast to
- *                      uint16 pointer).
+ *                      data type (example: data type of uint16_t will be cast to
+ *                      uint16_t pointer).
  *
  * @return      Generic BLE status return
  */
-extern bStatus_t Audio_SetParameter(uint8 param, uint8 len, void *value);
+extern bStatus_t Audio_SetParameter(uint8_t param, uint8_t len, void *value);
 
 /*********************************************************************
  * @fn          Audio_GetParameter
@@ -152,12 +162,12 @@ extern bStatus_t Audio_SetParameter(uint8 param, uint8 len, void *value);
  * @param       param - Profile parameter ID
  * @param       value - pointer to data to read. This is dependent on
  *                      the parameter ID and WILL be cast to the appropriate
- *                      data type (example: data type of uint16 will be cast to
- *                      uint16 pointer).
+ *                      data type (example: data type of uint16_t will be cast to
+ *                      uint16_t pointer).
  *
  * @return      Generic BLE status return
  */
-extern bStatus_t Audio_GetParameter(uint8 param, void *value);
+extern bStatus_t Audio_GetParameter(uint8_t param, void *value);
 
 /*********************************************************************
  * @fn      Audio_SetAudioDataLen
@@ -180,7 +190,7 @@ extern bStatus_t Audio_SetAudioDataLen(uint8_t len);
  *
  * @return      Unprocessed events.
  */
-extern uint16 Audio_ProcessEvent(uint8 task_id, uint16 events);
+extern uint16_t Audio_ProcessEvent(uint8_t task_id, uint16_t events);
 
 /*********************************************************************
  * @fn          Audio_StartTxStreaming
@@ -197,7 +207,7 @@ extern void Audio_StartTxStreaming(void);
 /*********************************************************************
  * @fn          Audio_StopTxStreaming
  *
- * @brief       This is the Audio Pofile stop function that
+ * @brief       This is the Audio Profile stop function that
  *              will stop audio streaming.
  *
  * @param       None.
