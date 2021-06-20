@@ -1,12 +1,12 @@
 ## Frequently Asked Questions
 
-* [What if I installed the SimpleLink CC2640R2 SDK at a non default location (e.g. Not at ``C:\ti\simplelink_cc2640r2_sdk_1_50_00_58``)?](#default)
+* [What if I installed the SimpleLink CC2640R2 SDK at a non default location (i.e. not at ``C:\ti\simplelink_cc2640r2_sdk_x_xx_xx_xx``)?](#default)
 * [Why am I getting an error when I am trying to run a Python script from the /tools folder?](#python)
 * [How can I setup my toolchain for use with the ble\_examples repo?](#toolchain)
 * [I am using a LaunchPad device, how can I view display data?](#display)
 ---
 
-### <a name="default"></a>What if I installed the SimpleLink CC2640R2 SDK at a non default location (e.g. Not at ``C:\ti\simplelink_cc2640r2_sdk_1_50_00_58``)?
+### <a name="default"></a>What if I installed the SimpleLink CC2640R2 SDK at a non default location (e.g. Not at ``C:\ti\simplelink_cc2640r2_sdk_x_xx_xx_xx``)?
 
 All projects reference files from the BLE stack using environment variables, you
 can change this in your IDE's project files.
@@ -16,7 +16,7 @@ can change this in your IDE's project files.
 No changes to the project is necessary. You just need to ensure that Code
 Composer Studio was able to discover the SimpleLink CC2640R2 SDK in the
 available *RTSC Products* tab. See the
-[BLE-Stack for Bluetooth 4.2 User's Guide](http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/index.html)
+[BLE-Stack User's Guide](http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC2640R2%20SDK%2FDocuments%2FBLE-Stack%2FBLE-Stack%20User's%20Guide)
 for more details.
 
 
@@ -26,6 +26,15 @@ for more details.
    `.custom_argvars` file.
 1. Update the value of ``SIMPLELINK_CORE_SDK_INSTALL_DIR`` to point to your
    custom installation directory where you installed the SimpleLink CC2640R2 SDK.
+
+---
+### <a name="versioning"></a>How should I keep my application based on a TI BLE-Stack SDK under version control?
+
+There are many ways to solve and address this issue. We are merely presenting
+one suggested workflow out of the many combinations that exist.
+
+Since this is an advanced topic, it has its own page dedicated to it.
+You can read more here: [Version Control](suggested_workflow.md)
 
 ---
 
@@ -58,18 +67,19 @@ following debug steps:
 **CCS**
 
 For BLE-Stack examples, see the *Developing with CCS* section of the
-[BLE-Stack for Bluetooth 4.2 User's Guide](http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/index.html).
+[BLE-Stack User's Guide](http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC2640R2%20SDK%2FDocuments%2FBLE-Stack%2FBLE-Stack%20User's%20Guide).
 **IAR**
 
 For BLE-Stack examples, see the *Developing with IAR* section of the
-[BLE-Stack for Bluetooth 4.2 User's Guide](http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/index.html).
+[BLE-Stack User's Guide](http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC2640R2%20SDK%2FDocuments%2FBLE-Stack%2FBLE-Stack%20User's%20Guide).
 
 ---
 
 ### <a name="display"></a>I am using a LaunchPad device, how can I view display data?
+
 LaunchPad projects are already set up to use the tidriver Display. For more
 information about the Display driver please see the Display.h driver
-documentation in the Simplelink CC2640R2 SDK (`docs/tidrivers/tidriversAPI.html`)
+documentation in the SimpleLink CC2640R2 SDK (`docs/tidrivers/tidriversAPI.html`)
 
 To setup your PC to receive this data please follow the steps below:
 
